@@ -1,0 +1,35 @@
+<!DOCTPYE html>
+<html ng-app="aplicacion">
+<head>
+	<meta charset="utf-8" />
+	<title> Angular JSON </title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/aplicacion.js"></script>
+</head>
+<body>
+	<form ng-controller="ControllerCampeonato">
+		<label> Nombre </label>
+		<br />
+		<input type="text" ng-model="campeonato.nombre" />
+		<br />
+		<label> Descripción </label>
+		<br />
+		<textarea cols="30" rows="10" ng-model="campeonato.descripcion"></textarea>
+		<br />
+		<label> Nombre integrante </label>
+		<input type="text" ng-model="integrante_temporal.nombre" />
+		<label> Apellido integrante </label>
+		<input type="text" ng-model="integrante_temporal.apellido" />
+		<input type="button" value="Agregar" ng-click="agregarIntegrante()" />
+		<ul>
+			<li ng-repeat="integrante in campeonato.integrantes">
+				<a href="javascript:void(0);" ng-click="eliminarIntegrante($index)"> Eliminar </a>
+				|
+				{{ integrante.nombre }} {{ integrante.apellido }}				
+			</li>
+		</ul>
+		<br />
+		<input type="button" value="Enviar" ng-click="enviar()" />
+	</form>
+</body>
+</html>
